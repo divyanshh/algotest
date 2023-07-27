@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from tradesense.models.crypto import Cryptos
+from tradesense.models.crypto import Crypto
 from tradesense.models.trades import Trades
 from tradesense.models.exchange import Exchange
 
@@ -17,11 +17,11 @@ class ExchangeAdmin(admin.ModelAdmin):
 
 
 class TradesAdmin(admin.ModelAdmin):
-    list_display = ["id", "crypto_name", "slug", "quote_currency_id", "market_pair",
-                    "buy_exchange", "sell_exchange", "buy_price", "sell_price",
+    list_display = ["id", "crypto_id", "quote_currency_id",
+                    "buy_exchange_id", "sell_exchange_id", "buy_price", "sell_price",
                     "arbitrage"]
 
 
-admin.site.register(Cryptos, CryptoAdmin)
+admin.site.register(Crypto, CryptoAdmin)
 admin.site.register(Trades, TradesAdmin)
 admin.site.register(Exchange, ExchangeAdmin)

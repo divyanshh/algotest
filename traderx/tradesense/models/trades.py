@@ -7,10 +7,13 @@ class Trades(models.Model):
     """
 
     id = models.AutoField(primary_key=True)
-    crypto_id = models.ForeignKey("Crypto", on_delete=models.CASCADE)
+    crypto = models.ForeignKey("Crypto", on_delete=models.CASCADE)
     quote_currency_id = models.IntegerField(default=2781)
-    buy_exchange_id = models.ForeignKey("Exchange", on_delete=models.CASCADE)
-    sell_exchange_id = models.ForeignKey("Exchange", on_delete=models.CASCADE)
+    buy_exchange = models.ForeignKey("Exchange", on_delete=models.CASCADE, related_name="buy_exchange_id")
+    sell_exchange = models.ForeignKey("Exchange", on_delete=models.CASCADE, related_name="sell_exchange_id")
     buy_price = models.FloatField(default=0)
     sell_price = models.FloatField(default=0)
     arbitrage = models.FloatField(default=0)
+    market_pair = models.CharField(max_length=30)
+    min_arbitrage = models.FloatField(default=0)
+    success = models.BooleanField(default=False)

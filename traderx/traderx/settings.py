@@ -74,13 +74,25 @@ WSGI_APPLICATION = 'traderx.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "qlrmbfus",
+        "USER": "qlrmbfus",
+        "PASSWORD": "3tmJqvlD0D1I6pNb-oCzLP5h54T1UrCV",
+        "HOST": "tiny.db.elephantsql.com",
+        "PORT": "5432",
     }
 }
 
+# postgres://qlrmbfus:3tmJqvlD0D1I6pNb-oCzLP5h54T1UrCV@tiny.db.elephantsql.com/qlrmbfus
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

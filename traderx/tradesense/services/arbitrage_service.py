@@ -34,6 +34,6 @@ class ArbitrageService:
         arbitrage_dto.arbitrage = arbitrage_amt
         arbitrage_dto.buy_price = filtered_market_pairs[length - 1][quotes][0][price]
         arbitrage_dto.sell_price = filtered_market_pairs[0][quotes][0][price]
-        arbitrage_dto.from_exchange = filtered_market_pairs[length - 1][exchange_slug]
-        arbitrage_dto.to_exchange = filtered_market_pairs[0][exchange_slug]
+        arbitrage_dto.buy_exchange = filtered_market_pairs[length - 1][exchange_slug]
+        arbitrage_dto.sell_exchange = filtered_market_pairs[0][exchange_slug]
         return arbitrage_dto
