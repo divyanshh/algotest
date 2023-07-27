@@ -92,6 +92,12 @@ DATABASES = {
     }
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+    ]
+}
+
 # postgres://qlrmbfus:3tmJqvlD0D1I6pNb-oCzLP5h54T1UrCV@tiny.db.elephantsql.com/qlrmbfus
 
 # Password validation

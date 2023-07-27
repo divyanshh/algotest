@@ -17,3 +17,5 @@ class Trades(models.Model):
     market_pair = models.CharField(max_length=30)
     min_arbitrage = models.FloatField(default=0)
     success = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    last_updated_at = models.DateTimeField(auto_now=True)

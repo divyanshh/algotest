@@ -11,6 +11,8 @@ class Exchange(models.Model):
     exchange_name = models.CharField(max_length=300, unique=True)
     slug = models.CharField(max_length=300, unique=True)
     is_active = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    last_updated_at = models.DateTimeField(auto_now=True)
 
     def clean(self):
         if any(ele.isupper() for ele in str(self.slug)):

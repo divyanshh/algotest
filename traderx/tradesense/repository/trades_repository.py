@@ -15,6 +15,6 @@ class TradesRepository:
         arbitrage_dto.success = success = True if arbitrage_dto.arbitrage >= min_arbitrage else False
         trade = Trades(crypto=crypto, buy_exchange=buy_exchange, sell_exchange=sell_exchange,
                        quote_currency_id=arbitrage_dto.crypto.quote_currency_id, buy_price=arbitrage_dto.buy_price,
-                       sell_price=arbitrage_dto.sell_price, arbitrage=arbitrage_dto.arbitrage,
+                       sell_price=arbitrage_dto.sell_price, arbitrage=round(arbitrage_dto.arbitrage, 3),
                        market_pair=arbitrage_dto.crypto.market_pair, success=success, min_arbitrage=min_arbitrage)
         trade.save()

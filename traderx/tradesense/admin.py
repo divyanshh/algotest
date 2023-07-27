@@ -19,7 +19,7 @@ class ExchangeAdmin(admin.ModelAdmin):
 class TradesAdmin(admin.ModelAdmin):
     list_display = ["id", "crypto_id", "quote_currency_id",
                     "buy_exchange_id", "sell_exchange_id", "buy_price", "sell_price",
-                    "arbitrage", "min_arbitrage", "success"]
+                    "arbitrage", "min_arbitrage", "success", "created_at"]
 
 
 admin.site.register(Crypto, CryptoAdmin)
