@@ -44,4 +44,4 @@ class CoinMarketCapService:
 
         response = requests.request("GET", url, headers=headers, data=payload)
 
-        return response.json()
+        return response.json()["data"]["marketPairs"]
