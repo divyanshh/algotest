@@ -13,3 +13,4 @@ class ArbitrageService:
         except Exception as ex:
             print(str(ex))
         print(arbitrage_amt)
+        return arbitrage_amt

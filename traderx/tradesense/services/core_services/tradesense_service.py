@@ -19,8 +19,8 @@ class TradeSenseService:
     def start_trading(self):
         market_pairs = self.cmc_service.get_market_pairs()
         filtered_market_pairs, length = self.exchange_filter.filter_exchanges(market_pairs)
-        self.arbitrage_service.calculate_arbitrage(filtered_market_pairs, length)
-
+        arbitrage_amt = self.arbitrage_service.calculate_arbitrage(filtered_market_pairs, length)
+        return arbitrage_amt
 
 
 if __name__ == '__main__':
