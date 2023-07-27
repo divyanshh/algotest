@@ -1,4 +1,4 @@
-from traderx.tradesense.services.crypto_dtos.crypto_dto import CryptoDTO
+from tradesense.dto.crypto_dtos.crypto_dto import CryptoDTO
 
 
 class TetherDTO(CryptoDTO):  # USDT

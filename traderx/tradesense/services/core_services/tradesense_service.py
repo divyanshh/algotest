@@ -1,11 +1,10 @@
 """
 TradeSenseService
 """
-from traderx.tradesense.services.arbitrage_service import ArbitrageService
-from traderx.tradesense.services.coinmarketcap_service import CoinMarketCapService
-from traderx.tradesense.services.crypto_dtos.bitcoin_dto import BitcoinDTO
-from traderx.tradesense.services.crypto_dtos.ethereum_dto import EthereumDTO
-from traderx.tradesense.services.exchange_filter import ExchangeFilter
+from tradesense.services.core_services.arbitrage_service import ArbitrageService
+from tradesense.services.core_services.coinmarketcap_service import CoinMarketCapService
+from tradesense.dto.crypto_dtos.bitcoin_dto import BitcoinDTO
+from tradesense.services.core_services.exchange_filter import ExchangeFilter
 
 
 class TradeSenseService:

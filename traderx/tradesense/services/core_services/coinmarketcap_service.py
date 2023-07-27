@@ -4,7 +4,7 @@ CoinMarketCapService implements all the apis from CoinMarketCap to get the requi
 
 import requests
 
-from traderx.tradesense.services.crypto_dtos.crypto_dto import CryptoDTO
+from tradesense.dto.crypto_dtos.crypto_dto import CryptoDTO
 
 
 class CoinMarketCapService:
