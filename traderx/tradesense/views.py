@@ -1,13 +1,7 @@
-import logging
-import socket
-import threading
 import time
 
-from django.http import HttpResponse
-from django.shortcuts import render
-
-from tradesense.services.core_services.tradesense_service import TradeSenseService
-from tradesense.services.core_services.socket_service import SocketService
+from tradesense.services.tradesense_service import TradeSenseService
+from tradesense.services.socket_service import SocketService
 
 
 # Create your views here.

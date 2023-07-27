@@ -2,9 +2,9 @@ from django.core.exceptions import ValidationError
 from django.db import models
 
 
-class Cryptos(models.Model):
+class Crypto(models.Model):
     """
-    Cryptos Model
+    Crypto Model
     """
 
     id = models.AutoField(primary_key=True)

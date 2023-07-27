@@ -1,6 +1,10 @@
+from tradesense.models.exchange import Exchange
+
+
 class ExchangeFilter:
     def __init__(self, market_pair="BTC/USD"):
-        self.exchanges = {"binance": True, "coinbase": True, "kraken": True, "bitfinex": True, "bittrex": True}
+        # self.exchanges = {"binance": True, "coinbase": True, "kraken": True, "bitfinex": True, "bittrex": True}
+        self.exchanges = dict(Exchange.objects.filter(is_active=True).values('slug', 'is_active'))
         self.market_pair = market_pair
 
     def filter_exchanges(self, market_pairs):

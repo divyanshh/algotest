@@ -4,21 +4,21 @@ CoinMarketCapService implements all the apis from CoinMarketCap to get the requi
 
 import requests
 
-from tradesense.dto.crypto_dtos.crypto_dto import CryptoDTO
+from tradesense.models.crypto import Crypto
 
 
 class CoinMarketCapService:
 
-    def __init__(self, crypto_dto: CryptoDTO):
-        self.crypto_dto = crypto_dto
+    def __init__(self, crypto: Crypto):
+        self.crypto = crypto
 
     def get_market_pairs(self):
         url = "https://api.coinmarketcap.com/data-api/v3/cryptocurrency/market-pairs/latest?slug={slug}" \
               "&start=1&quoteCurrencyId={quote_currency_id}&limit={limit}&category=spot&centerType=all" \
-              "&sort={sort}&direction={direction}".format(slug=self.crypto_dto.slug,
-                                                          quote_currency_id=self.crypto_dto.quote_currency_id,
-                                                          limit=self.crypto_dto.limit, sort=self.crypto_dto.sort,
-                                                          direction=self.crypto_dto.sort_direction)
+              "&sort={sort}&direction={direction}".format(slug=self.crypto.slug,
+                                                          quote_currency_id=self.crypto.quote_currency_id,
+                                                          limit=self.crypto.limit, sort=self.crypto.sort,
+                                                          direction=self.crypto.sort_direction)
 
         payload = {}
         headers = {
