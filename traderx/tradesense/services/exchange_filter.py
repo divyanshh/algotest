@@ -5,7 +5,8 @@ class ExchangeFilter:
 
     @staticmethod
     def filter_exchanges(market_pairs, crypto_vs_curr_pair):
-        exchanges = dict(Exchange.objects.filter(is_active=True).values('slug', 'is_active'))
+        exchanges_qs = Exchange.objects.filter(is_active=True).values('slug', 'is_active')
+        exchanges = {item['slug']: item['is_active'] for item in list(exchanges_qs)}
         filtered_market_pairs = []
         length = 0
         for market_pair in market_pairs:

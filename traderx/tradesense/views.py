@@ -11,17 +11,20 @@ def start_trading(request):
     if crypto_id is None:
         raise ValueError("Please pass crypto's id to trade in")
     tradesense_service = TradeSenseService(crypto_id)
-    conn = SocketService.get_connection()
+    #conn = SocketService.get_connection()
     while True:
         arbitrage_dto = tradesense_service.start_trading()
         msg1 = "TRADE SUCCESS : " if arbitrage_dto.success else "TRADE FAILURE : "
-        msg2 = "From: {from_exchange} To: {to_exchange}, buy_price: {buy_price} , sell_price: {sell_price} " \
-               "arbitrage_amt: {arbitrage_amt}," \
-               " min_arbitrage: {min_arbitrage}".format(from_exchange=arbitrage_dto.buy_exchange,
+        msg2 = "Crypto: {crypto}, From: {from_exchange} To: {to_exchange}, buy_price: {buy_price} , " \
+               "sell_price: {sell_price} arbitrage_amt: {arbitrage_amt}, " \
+               "min_arbitrage: {min_arbitrage}".format(crypto=arbitrage_dto.crypto.crypto_name,
+                                                        from_exchange=arbitrage_dto.buy_exchange,
                                                         to_exchange=arbitrage_dto.sell_exchange,
                                                         buy_price=arbitrage_dto.buy_price,
                                                         sell_price=arbitrage_dto.sell_price,
                                                         arbitrage_amt=arbitrage_dto.arbitrage,
                                                         min_arbitrage=arbitrage_dto.min_arbitrage)
-        conn.send(str(msg1+msg2).encode())  # send data to the client
+        print(msg1+msg2)
+        #conn.send(str(msg1+msg2).encode())  # send data to the client
+        tradesense_service = TradeSenseService(crypto_id)
         time.sleep(10)

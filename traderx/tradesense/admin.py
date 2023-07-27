@@ -9,7 +9,7 @@ from tradesense.models.exchange import Exchange
 
 class CryptoAdmin(admin.ModelAdmin):
     list_display = ["id", "slug", "crypto_name", "symbol", "quote_currency_id", "sort", "sort_direction",
-                    "limit", "start", "category", "market_pair"]
+                    "limit", "start", "category", "market_pair", "arbitrage_threshold_amount"]
 
 
 class ExchangeAdmin(admin.ModelAdmin):
@@ -19,7 +19,7 @@ class ExchangeAdmin(admin.ModelAdmin):
 class TradesAdmin(admin.ModelAdmin):
     list_display = ["id", "crypto_id", "quote_currency_id",
                     "buy_exchange_id", "sell_exchange_id", "buy_price", "sell_price",
-                    "arbitrage"]
+                    "arbitrage", "min_arbitrage", "success"]
 
 
 admin.site.register(Crypto, CryptoAdmin)

@@ -26,6 +26,6 @@ class TradeSenseService:
         market_pairs = self.cmc_service.get_market_pairs()
         filtered_market_pairs, length = self.exchange_filter.filter_exchanges(market_pairs,
                                                                               self.crypto_model.market_pair)
-        arbitrage_dto = self.arbitrage_service.calculate_arbitrage(filtered_market_pairs, length)
+        arbitrage_dto = self.arbitrage_service.calculate_arbitrage(arbitrage_dto, filtered_market_pairs, length)
         self.trades_repository.add_entry(arbitrage_dto)
         return arbitrage_dto

@@ -22,6 +22,7 @@ class Crypto(models.Model):
     start = models.IntegerField(default=1)
     category = models.CharField(max_length=300, default="spot")
     market_pair = models.CharField(max_length=30)
+    arbitrage_threshold_amount = models.FloatField(default=0)
 
     def clean(self):
         if any(ele.isupper() for ele in str(self.slug)):
