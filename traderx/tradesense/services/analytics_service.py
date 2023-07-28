@@ -27,13 +27,13 @@ class AnalyticsService:
 
         if "crypto_id" in get_request:
             ids = get_request["crypto_id"].split(",")
-            results.filter(id__in=ids)
+            results = results.filter(crypto__in=ids)
         if "from_exchange" in get_request:
             ids = get_request["from_exchange"].split(",")
-            results.filter(buy_exchange__in=ids)
+            results = results.filter(buy_exchange__in=ids)
         if "to_exchange" in get_request:
             ids = get_request["to_exchange"].split(",")
-            results.filter(sell_exchange__in=ids)
+            results = results.filter(sell_exchange__in=ids)
         if len(results) == 0:
             return AnalyticsDTO(from_date, to_date)
         average_profit = (

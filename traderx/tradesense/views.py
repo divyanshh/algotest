@@ -1,3 +1,4 @@
+import logging
 import threading
 import time
 
@@ -24,6 +25,7 @@ from tradesense.utils import get_message
 def start_trading(request):
     crypto_id = int(request.GET["id"])
     if crypto_id is None:
+        logging.error("crypto id null")
         raise ValueError("Please pass crypto's id to trade in")
     conn = SocketService.get_connection()
 
@@ -35,7 +37,7 @@ def start_trading(request):
         tradesense_service = TradeSenseService(crypto_id)
         arbitrage_dto = tradesense_service.start_trading()
         msg = get_message(arbitrage_dto)
-        print(msg)
+        logging.info(msg)
         conn.send(str(msg).encode())  # send data to the client
         time.sleep(60)
 
@@ -50,6 +52,7 @@ def handle_threshold(conn, crypto_id):
                 CryptoRepository.update_crypto_threshold(crypto_id, threshold)
                 conn.send("Threshold successfully updated!".encode())
             except Exception as ex:
+                logging.error(str(ex))
                 conn.send(str(ex).encode())
 
 
