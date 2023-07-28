@@ -16,4 +16,4 @@ def get_message(arbitrage_dto: ArbitrageDTO) -> str:
             min_arbitrage=arbitrage_dto.min_arbitrage,
         )
     )
-    return msg1+msg2
+    return msg1 + msg2

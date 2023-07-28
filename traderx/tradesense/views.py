@@ -46,7 +46,7 @@ def handle_threshold(conn, crypto_id):
         if data:
             # set_threshold:400
             try:
-                threshold = int(data.split(':')[1])
+                threshold = int(data.split(":")[1])
                 CryptoRepository.update_crypto_threshold(crypto_id, threshold)
                 conn.send("Threshold successfully updated!".encode())
             except Exception as ex:
