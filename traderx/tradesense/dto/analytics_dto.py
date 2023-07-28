@@ -25,7 +25,6 @@ class AnalyticsDTO:
 
     def to_json(self):
         # Serialize the trades queryset to JSON
-        # trades_json = serializers.serialize('json', self.trades, cls=DjangoJSONEncoder)
         trades_json = serializers.serialize("python", self.trades)
 
         json_data = {
