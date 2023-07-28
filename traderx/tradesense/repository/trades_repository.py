@@ -5,6 +5,10 @@ from tradesense.models.trades import Trades
 
 
 class TradesRepository:
+    """
+    DB layer to save and get Trade details from DB
+    """
+
     @staticmethod
     def add_entry(arbitrage_dto: ArbitrageDTO) -> None:
         crypto = arbitrage_dto.crypto

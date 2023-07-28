@@ -3,6 +3,11 @@ from django.core.serializers.json import DjangoJSONEncoder
 
 
 class AnalyticsDTO:
+    """
+    Contains all the data for analytics.
+    This DTO is converted to json and returned to the user
+    """
+
     def __init__(
         self,
         from_date,

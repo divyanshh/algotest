@@ -4,6 +4,13 @@ from tradesense.models.exchange import Exchange
 class ExchangeFilterService:
     @staticmethod
     def filter_exchanges(market_pairs, crypto_vs_curr_pair):
+        """
+        Get all market pairs, filter based on active exchanges in our DB
+
+        :param market_pairs:
+        :param crypto_vs_curr_pair:
+        :return:
+        """
         exchanges_qs = Exchange.objects.filter(is_active=True).values(
             "slug", "is_active"
         )

@@ -5,8 +5,21 @@ from tradesense.models.trades import Trades
 
 
 class AnalyticsService:
+    """
+    Analytics service - Handles all analytics requests
+    """
+
     @staticmethod
     def get_trade_analytics(get_request) -> AnalyticsDTO:
+        """
+        get details from GET request
+        Filter based on from_date, to_date, success, crypto_id
+        from_exchange, to_exchange, min_arbitrage and return a
+        collation of results + all the trades that took place
+
+        :param get_request:
+        :return: AnalyticsDTO
+        """
         if "from_date" not in get_request:
             raise ValueError("Required from_date")
         if "to_date" not in get_request:
@@ -34,6 +47,9 @@ class AnalyticsService:
         if "to_exchange" in get_request:
             ids = get_request["to_exchange"].split(",")
             results = results.filter(sell_exchange__in=ids)
+        if "min_arbitrage" in get_request:
+            min_arbitrage = int(get_request["min_arbitrage"])
+            results = results.filter(arbitrage__gte=min_arbitrage)
         if len(results) == 0:
             return AnalyticsDTO(from_date, to_date)
         average_profit = (

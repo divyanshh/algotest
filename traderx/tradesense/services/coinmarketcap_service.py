@@ -8,10 +8,22 @@ from tradesense.models.crypto import Crypto
 
 
 class CoinMarketCapService:
+    """
+    CoinMarketCapService - Handles all the requests for CoinMarketCap
+    """
+
     def __init__(self, crypto: Crypto):
         self.crypto = crypto
 
     def get_market_pairs(self):
+        """
+        Get all the market_pairs from different exchanges based on some filters
+        We can set the currency, crypto name, limit results and sort on the key that
+        we want
+
+        We sort based on price on descending order because we want to make maximum returns
+        :return:
+        """
         url = (
             "https://api.coinmarketcap.com/data-api/v3/cryptocurrency/market-pairs/latest?slug={slug}"
             "&start=1&quoteCurrencyId={quote_currency_id}&limit={limit}&category=spot&centerType=all"
