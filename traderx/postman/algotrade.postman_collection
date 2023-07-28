@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "b2a13469-7586-4652-9965-93d94a597c7a",
+		"name": "Algotrade",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12299084"
+	},
+	"item": [
+		{
+			"name": "start_trading",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/tradesense/start_trading?id=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"tradesense",
+						"start_trading"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analytics",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "elon",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "elon",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/tradesense/analytics?successful=False&from_date=2023-07-27&to_date=2023-07-28&crypto_id=2&from_exchange=4&to_exchange=1&min_arbitrage=300",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"tradesense",
+						"analytics"
+					],
+					"query": [
+						{
+							"key": "successful",
+							"value": "False"
+						},
+						{
+							"key": "from_date",
+							"value": "2023-07-27"
+						},
+						{
+							"key": "to_date",
+							"value": "2023-07-28"
+						},
+						{
+							"key": "crypto_id",
+							"value": "2"
+						},
+						{
+							"key": "from_exchange",
+							"value": "4"
+						},
+						{
+							"key": "to_exchange",
+							"value": "1"
+						},
+						{
+							"key": "min_arbitrage",
+							"value": "300"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "crypto_id_2_failed_trades",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/tradesense/analytics?successful=False&from_date=2023-07-27&to_date=2023-07-28&crypto_id=2&from_exchange=4&to_exchange=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"tradesense",
+								"analytics"
+							],
+							"query": [
+								{
+									"key": "successful",
+									"value": "False"
+								},
+								{
+									"key": "from_date",
+									"value": "2023-07-27"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-07-28"
+								},
+								{
+									"key": "crypto_id",
+									"value": "2"
+								},
+								{
+									"key": "from_exchange",
+									"value": "4"
+								},
+								{
+									"key": "to_exchange",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Jul 2023 08:05:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.13"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1520"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"number_of_trades\": 4,\n    \"successful_trades\": 0,\n    \"failed_trades\": 4,\n    \"average_profit\": 0,\n    \"from_date\": \"2023-07-27\",\n    \"to_date\": \"2023-07-28\",\n    \"trades\": [\n        {\n            \"model\": \"tradesense.trades\",\n            \"pk\": 26,\n            \"fields\": {\n                \"crypto\": 2,\n                \"quote_currency_id\": 2781,\n                \"buy_exchange\": 4,\n                \"sell_exchange\": 1,\n                \"buy_price\": 1860.3,\n                \"sell_price\": 1888.899,\n                \"arbitrage\": 28.598999999999933,\n                \"market_pair\": \"ETH/USD\",\n                \"min_arbitrage\": 100,\n                \"success\": false,\n                \"created_at\": \"2023-07-27T22:12:46.689978Z\",\n                \"last_updated_at\": \"2023-07-27T22:12:46.905548Z\"\n            }\n        },\n        {\n            \"model\": \"tradesense.trades\",\n            \"pk\": 27,\n            \"fields\": {\n                \"crypto\": 2,\n                \"quote_currency_id\": 2781,\n                \"buy_exchange\": 4,\n                \"sell_exchange\": 1,\n                \"buy_price\": 1860.3,\n                \"sell_price\": 1888.899,\n                \"arbitrage\": 28.598999999999933,\n                \"market_pair\": \"ETH/USD\",\n                \"min_arbitrage\": 100,\n                \"success\": false,\n                \"created_at\": \"2023-07-27T22:12:46.689978Z\",\n                \"last_updated_at\": \"2023-07-27T22:12:46.905548Z\"\n            }\n        },\n        {\n            \"model\": \"tradesense.trades\",\n            \"pk\": 28,\n            \"fields\": {\n                \"crypto\": 2,\n                \"quote_currency_id\": 2781,\n                \"buy_exchange\": 4,\n                \"sell_exchange\": 1,\n                \"buy_price\": 1860.3,\n                \"sell_price\": 1888.899,\n                \"arbitrage\": 28.598999999999933,\n                \"market_pair\": \"ETH/USD\",\n                \"min_arbitrage\": 100,\n                \"success\": false,\n                \"created_at\": \"2023-07-27T22:12:46.689978Z\",\n                \"last_updated_at\": \"2023-07-27T22:12:46.905548Z\"\n            }\n        },\n        {\n            \"model\": \"tradesense.trades\",\n            \"pk\": 29,\n            \"fields\": {\n                \"crypto\": 2,\n                \"quote_currency_id\": 2781,\n                \"buy_exchange\": 4,\n                \"sell_exchange\": 1,\n                \"buy_price\": 1860.3,\n                \"sell_price\": 1888.899,\n                \"arbitrage\": 28.598999999999933,\n                \"market_pair\": \"ETH/USD\",\n                \"min_arbitrage\": 100,\n                \"success\": false,\n                \"created_at\": \"2023-07-27T22:12:46.689978Z\",\n                \"last_updated_at\": \"2023-07-27T22:12:46.905548Z\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "cmc_market_pairs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authority",
+						"value": "api.coinmarketcap.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-IN,en-US;q=0.9,en;q=0.8,hi-IN;q=0.7,hi;q=0.6,en-GB;q=0.5"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "dnt",
+						"value": "1"
+					},
+					{
+						"key": "origin",
+						"value": "https://coinmarketcap.com"
+					},
+					{
+						"key": "platform",
+						"value": "web"
+					},
+					{
+						"key": "referer",
+						"value": "https://coinmarketcap.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"115\", \"Chromium\";v=\"115\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "sec-gpc",
+						"value": "1"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "x-request-id",
+						"value": "0ceaf88618924507884ce85bec07e176"
+					}
+				],
+				"url": {
+					"raw": "https://api.coinmarketcap.com/data-api/v3/cryptocurrency/market-pairs/latest?slug=tether&start=1&quoteCurrencyId=2781&limit=100&category=spot&centerType=all&sort=price&direction=desc",
+					"protocol": "https",
+					"host": [
+						"api",
+						"coinmarketcap",
+						"com"
+					],
+					"path": [
+						"data-api",
+						"v3",
+						"cryptocurrency",
+						"market-pairs",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "slug",
+							"value": "tether"
+						},
+						{
+							"key": "start",
+							"value": "1"
+						},
+						{
+							"key": "quoteCurrencyId",
+							"value": "2781"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						},
+						{
+							"key": "category",
+							"value": "spot"
+						},
+						{
+							"key": "centerType",
+							"value": "all"
+						},
+						{
+							"key": "sort",
+							"value": "price"
+						},
+						{
+							"key": "direction",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
