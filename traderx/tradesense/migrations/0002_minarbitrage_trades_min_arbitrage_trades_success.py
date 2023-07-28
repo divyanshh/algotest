@@ -4,27 +4,26 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tradesense', '0001_initial'),
+        ("tradesense", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='MinArbitrage',
+            name="MinArbitrage",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('arbitrage_amount', models.FloatField(default=0)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("arbitrage_amount", models.FloatField(default=0)),
             ],
         ),
         migrations.AddField(
-            model_name='trades',
-            name='min_arbitrage',
+            model_name="trades",
+            name="min_arbitrage",
             field=models.FloatField(default=0),
         ),
         migrations.AddField(
-            model_name='trades',
-            name='success',
+            model_name="trades",
+            name="success",
             field=models.BooleanField(default=False),
         ),
     ]

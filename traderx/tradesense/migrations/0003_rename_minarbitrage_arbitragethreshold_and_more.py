@@ -4,19 +4,18 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tradesense', '0002_minarbitrage_trades_min_arbitrage_trades_success'),
+        ("tradesense", "0002_minarbitrage_trades_min_arbitrage_trades_success"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='MinArbitrage',
-            new_name='ArbitrageThreshold',
+            old_name="MinArbitrage",
+            new_name="ArbitrageThreshold",
         ),
         migrations.RenameField(
-            model_name='arbitragethreshold',
-            old_name='arbitrage_amount',
-            new_name='arbitrage_threshold_amount',
+            model_name="arbitragethreshold",
+            old_name="arbitrage_amount",
+            new_name="arbitrage_threshold_amount",
         ),
     ]

@@ -7,9 +7,10 @@ from tradesense.dto.arbitrage_dto import ArbitrageDTO
 
 
 class ArbitrageService:
-
     @staticmethod
-    def calculate_arbitrage(arbitrage_dto: ArbitrageDTO, filtered_market_pairs, length: int) -> ArbitrageDTO:
+    def calculate_arbitrage(
+        arbitrage_dto: ArbitrageDTO, filtered_market_pairs, length: int
+    ) -> ArbitrageDTO:
         """
         Calculates arbitrage b/w the first and last Exchanges
         (assuming exchanges data is sorted in descending order by price)
@@ -26,8 +27,10 @@ class ArbitrageService:
         arbitrage_amt = -1
 
         try:
-            arbitrage_amt = filtered_market_pairs[0][quotes][0][price] \
-                            - filtered_market_pairs[length - 1][quotes][0][price]
+            arbitrage_amt = (
+                filtered_market_pairs[0][quotes][0][price]
+                - filtered_market_pairs[length - 1][quotes][0][price]
+            )
         except Exception as ex:
             logging.error(str(ex))
             raise RuntimeError("Arbitrage couldn't be calculated")

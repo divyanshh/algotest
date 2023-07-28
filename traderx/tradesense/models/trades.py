@@ -9,8 +9,12 @@ class Trades(models.Model):
     id = models.AutoField(primary_key=True)
     crypto = models.ForeignKey("Crypto", on_delete=models.CASCADE)
     quote_currency_id = models.IntegerField(default=2781)
-    buy_exchange = models.ForeignKey("Exchange", on_delete=models.CASCADE, related_name="buy_exchange_id")
-    sell_exchange = models.ForeignKey("Exchange", on_delete=models.CASCADE, related_name="sell_exchange_id")
+    buy_exchange = models.ForeignKey(
+        "Exchange", on_delete=models.CASCADE, related_name="buy_exchange_id"
+    )
+    sell_exchange = models.ForeignKey(
+        "Exchange", on_delete=models.CASCADE, related_name="sell_exchange_id"
+    )
     buy_price = models.FloatField(default=0)
     sell_price = models.FloatField(default=0)
     arbitrage = models.FloatField(default=0)

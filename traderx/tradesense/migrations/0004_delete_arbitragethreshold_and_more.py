@@ -4,18 +4,17 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tradesense', '0003_rename_minarbitrage_arbitragethreshold_and_more'),
+        ("tradesense", "0003_rename_minarbitrage_arbitragethreshold_and_more"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='ArbitrageThreshold',
+            name="ArbitrageThreshold",
         ),
         migrations.AddField(
-            model_name='crypto',
-            name='arbitrage_threshold_amount',
+            model_name="crypto",
+            name="arbitrage_threshold_amount",
             field=models.FloatField(default=0),
         ),
     ]

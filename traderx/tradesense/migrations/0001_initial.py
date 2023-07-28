@@ -5,50 +5,75 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Crypto',
+            name="Crypto",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('crypto_name', models.CharField(max_length=300, unique=True)),
-                ('symbol', models.CharField(default='', max_length=30, unique=True)),
-                ('slug', models.CharField(max_length=300, unique=True)),
-                ('quote_currency_id', models.IntegerField(default=2781)),
-                ('sort', models.CharField(default='price', max_length=300)),
-                ('sort_direction', models.CharField(choices=[('asc', 'asc'), ('desc', 'desc')], default='desc', max_length=30)),
-                ('limit', models.IntegerField(default=100)),
-                ('start', models.IntegerField(default=1)),
-                ('category', models.CharField(default='spot', max_length=300)),
-                ('market_pair', models.CharField(max_length=30)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("crypto_name", models.CharField(max_length=300, unique=True)),
+                ("symbol", models.CharField(default="", max_length=30, unique=True)),
+                ("slug", models.CharField(max_length=300, unique=True)),
+                ("quote_currency_id", models.IntegerField(default=2781)),
+                ("sort", models.CharField(default="price", max_length=300)),
+                (
+                    "sort_direction",
+                    models.CharField(
+                        choices=[("asc", "asc"), ("desc", "desc")],
+                        default="desc",
+                        max_length=30,
+                    ),
+                ),
+                ("limit", models.IntegerField(default=100)),
+                ("start", models.IntegerField(default=1)),
+                ("category", models.CharField(default="spot", max_length=300)),
+                ("market_pair", models.CharField(max_length=30)),
             ],
         ),
         migrations.CreateModel(
-            name='Exchange',
+            name="Exchange",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('exchange_name', models.CharField(max_length=300, unique=True)),
-                ('slug', models.CharField(max_length=300, unique=True)),
-                ('is_active', models.BooleanField(default=False)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("exchange_name", models.CharField(max_length=300, unique=True)),
+                ("slug", models.CharField(max_length=300, unique=True)),
+                ("is_active", models.BooleanField(default=False)),
             ],
         ),
         migrations.CreateModel(
-            name='Trades',
+            name="Trades",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('quote_currency_id', models.IntegerField(default=2781)),
-                ('buy_price', models.FloatField(default=0)),
-                ('sell_price', models.FloatField(default=0)),
-                ('arbitrage', models.FloatField(default=0)),
-                ('market_pair', models.CharField(max_length=30)),
-                ('buy_exchange', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='buy_exchange_id', to='tradesense.exchange')),
-                ('crypto', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tradesense.crypto')),
-                ('sell_exchange', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='sell_exchange_id', to='tradesense.exchange')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("quote_currency_id", models.IntegerField(default=2781)),
+                ("buy_price", models.FloatField(default=0)),
+                ("sell_price", models.FloatField(default=0)),
+                ("arbitrage", models.FloatField(default=0)),
+                ("market_pair", models.CharField(max_length=30)),
+                (
+                    "buy_exchange",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="buy_exchange_id",
+                        to="tradesense.exchange",
+                    ),
+                ),
+                (
+                    "crypto",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="tradesense.crypto",
+                    ),
+                ),
+                (
+                    "sell_exchange",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="sell_exchange_id",
+                        to="tradesense.exchange",
+                    ),
+                ),
             ],
         ),
     ]

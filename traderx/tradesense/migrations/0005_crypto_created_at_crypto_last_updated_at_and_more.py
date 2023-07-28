@@ -4,40 +4,39 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tradesense', '0004_delete_arbitragethreshold_and_more'),
+        ("tradesense", "0004_delete_arbitragethreshold_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='crypto',
-            name='created_at',
+            model_name="crypto",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.AddField(
-            model_name='crypto',
-            name='last_updated_at',
+            model_name="crypto",
+            name="last_updated_at",
             field=models.DateTimeField(auto_now=True),
         ),
         migrations.AddField(
-            model_name='exchange',
-            name='created_at',
+            model_name="exchange",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.AddField(
-            model_name='exchange',
-            name='last_updated_at',
+            model_name="exchange",
+            name="last_updated_at",
             field=models.DateTimeField(auto_now=True),
         ),
         migrations.AddField(
-            model_name='trades',
-            name='created_at',
+            model_name="trades",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.AddField(
-            model_name='trades',
-            name='last_updated_at',
+            model_name="trades",
+            name="last_updated_at",
             field=models.DateTimeField(auto_now=True),
         ),
     ]

@@ -3,7 +3,6 @@ import socket
 
 
 class SocketService:
-
     @staticmethod
     def get_connection():
         host = socket.gethostname()
