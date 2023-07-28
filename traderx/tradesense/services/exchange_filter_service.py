@@ -1,7 +1,7 @@
 from tradesense.models.exchange import Exchange
 
 
-class ExchangeFilter:
+class ExchangeFilterService:
     @staticmethod
     def filter_exchanges(market_pairs, crypto_vs_curr_pair):
         exchanges_qs = Exchange.objects.filter(is_active=True).values(

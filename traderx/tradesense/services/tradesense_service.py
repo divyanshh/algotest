@@ -3,7 +3,7 @@ TradeSenseService
 """
 from tradesense.services.arbitrage_service import ArbitrageService
 from tradesense.services.coinmarketcap_service import CoinMarketCapService
-from tradesense.services.exchange_filter import ExchangeFilter
+from tradesense.services.exchange_filter_service import ExchangeFilterService
 
 from tradesense.dto.arbitrage_dto import ArbitrageDTO
 
@@ -17,14 +17,14 @@ class TradeSenseService:
         self.crypto_model = CryptoRepository().get_crypto_details(crypto_id)
         self.cmc_service = CoinMarketCapService(self.crypto_model)
         self.arbitrage_service = ArbitrageService()
-        self.exchange_filter = ExchangeFilter()
+        self.exchange_filter_service = ExchangeFilterService()
         self.trades_repository = TradesRepository()
 
     def start_trading(self) -> ArbitrageDTO:
         arbitrage_dto = ArbitrageDTO()
         arbitrage_dto.crypto = self.crypto_model
         market_pairs = self.cmc_service.get_market_pairs()
-        filtered_market_pairs, length = self.exchange_filter.filter_exchanges(
+        filtered_market_pairs, length = self.exchange_filter_service.filter_exchanges(
             market_pairs, self.crypto_model.market_pair
         )
         arbitrage_dto = self.arbitrage_service.calculate_arbitrage(
