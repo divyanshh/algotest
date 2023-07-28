@@ -26,6 +26,8 @@ class ArbitrageService:
         exchange_slug = "exchangeSlug"
         arbitrage_amt = -1
 
+        if length < 2:
+            raise RuntimeError("Not enough data to make a trade")
         try:
             arbitrage_amt = (
                 filtered_market_pairs[0][quotes][0][price]
