@@ -1,16 +1,12 @@
-import json
 import time
 
-from django.core import serializers
-from django.http import HttpResponse
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 from tradesense.services.analytics_service import AnalyticsService
 from tradesense.services.tradesense_service import TradeSenseService
-from tradesense.services.socket_service import SocketService
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
 
 
 # Create your views here.

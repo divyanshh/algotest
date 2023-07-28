@@ -4,8 +4,10 @@ from django.core.serializers.json import DjangoJSONEncoder
 
 class AnalyticsDTO:
 
-    def __init__(self, number_of_trades, successful_trades, failed_trades,
-                 average_profit, from_date, to_date, trades):
+    def __init__(self, from_date, to_date, number_of_trades=0, successful_trades=0, failed_trades=0,
+                 average_profit=0, trades=None):
+        if trades is None:
+            trades = []
         self.number_of_trades = number_of_trades
         self.successful_trades = successful_trades
         self.failed_trades = failed_trades
