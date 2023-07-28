@@ -1,4 +1,4 @@
-# algotest
+# Algotest
 
 ## Description
 
